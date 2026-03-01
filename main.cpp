@@ -14,6 +14,14 @@
 using namespace std;
 
 int main() {
+
+  cout << "Please enter the image you wish to stack: ";
+  //cin
+
+  cout << "Please enter the number of images: ";
+  //cin
+
+  cout << "Stacking images:" << endl;
   
   
   return 0;
