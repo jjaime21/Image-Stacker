@@ -1,6 +1,6 @@
 /**
  * @file stacker.h
- * @author Jose Jaime
+ * @author Isaac McKnew and Jose Jaime
  * @date 2026-02-28
  * @brief Stacker class
  * 
@@ -10,13 +10,14 @@
 #ifndef STACKER_H
 #define STACKER_H
 
+#include <string>
 #include <vector>
 
 class stacker {
-Private:
+private:
 
   //magic number is the p3 value
-  string magic_number;
+  std::string magic_number;
   //width and height describe the image dimension
   //max_color is the color depth
   int width, height, max_color;
@@ -26,12 +27,12 @@ Private:
     int red;
     int green;
     int blue;
-  }
+  };
 
-  //vector of pixel structs
-  vector<struct> pixels;
+  //Use the struct name pixel for the vector of pixels and std:: because namespace std is not used.
+  std::vector<pixel> pixels;
 
-Public:
+public:
   
 
 /**
@@ -58,8 +59,34 @@ Public:
  * @post the vector of pixels
  * 
  */
-  vector<struct> scan();
-  
+  std::vector<pixel> scan();
+
+
+
+/**
+ * This function reads each image from the ppms folder.
+ *
+ * @param const string& image The file name read by the function.
+ * @param int numberImages The number of images that are stacked.
+ * @pre The images need to be present in the file name path.
+ * @return void No return type.
+ * @post The pixels vector has the average of the images.
+ * 
+ */
+  void readFile(const std::string& image, int numberImages);
+
+
+
+/**
+ * This function writes a sharper image to a new file.
+ *
+ * @param const string& image The file name for the new file.
+ * @pre The pixels vector needs the average of the images.
+ * @return void No return type.
+ * @post A new file is made and has a sharper image.
+ * 
+ */
+  void writeFile(const std::string& image);
 
 
 };
