@@ -22,7 +22,15 @@ stacker::stacker(){
   width = 0;
   height = 0;
   max_color = 0;
-  
+
+
+  struct pixel{
+    int red = 0;
+    int green = 0;
+    int blue = 0;
+  }
+
+  vector<pixel> pixels;
 }
 
 
@@ -41,7 +49,10 @@ void stacker::readFile(const std::string& image, int numberImages){
   inputFile >> magic_number >> width >> height >> max_color;
   pixels.reserve(width * height);
 
-  //find way to change the pixel struct so it can be put into the pixels vector
+  for(pixel& pixel : pixels){
+    inputFile >> pixel.red >> pixel.green >> pixel.blue;
+  }
+  
 
   inputFile.close();
 
