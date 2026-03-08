@@ -74,6 +74,7 @@ void stacker::readFile(const std::string& image, int numberImages){
 
   }
 
+
   //Get the average for each color
   //Changed int k to size_t k to fix warning: comparison of integer expressions of different signedness
   //I got help from cppreference website:https://en.cppreference.com/w/cpp/types/size_t.html 
@@ -83,7 +84,6 @@ void stacker::readFile(const std::string& image, int numberImages){
     pixels[k].blue = pixels[k].blue / numberImages;
   }
   
-
 }
 
 
@@ -116,5 +116,6 @@ void stacker::writeFile(const std::string& image){
   cout << endl << "Stacking succeeded." << endl;
   cout << "Output witten to: " << fileName << endl;
 
+  outputFile.close();
 }
 
