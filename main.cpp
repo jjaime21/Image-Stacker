@@ -26,6 +26,7 @@ int main() {
 
   cout << "Stacking images:" << endl;
 
+  
   //Read the images in the folder and get the average.
   //imageStacker.readFile(image, numberImages);
 

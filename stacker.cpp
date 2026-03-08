@@ -47,7 +47,7 @@ void stacker::readFile(const std::string& image, int numberImages){
   }
 
   inputFile >> magic_number >> width >> height >> max_color;
-  pixels.reserve(width * height);
+  pixels.reserve(width * height * numberImages);
 
   for(pixel& pixel : pixels){
     inputFile >> pixel.red >> pixel.green >> pixel.blue;
@@ -55,13 +55,26 @@ void stacker::readFile(const std::string& image, int numberImages){
   
 
   inputFile.close();
+  //goal here is to make another vector to add multiple images together and then average from there
+  //I got lost too late so I can't make it happen
 
 }
 
 
 void stacker::writeFile(const std::string& image){
 
+  ofstream outputFile(image);
+  if(!outputFile.is_open()){
+    cout << "Please choose a valid file" << endl;
+  }
 
+  outputFile << magic_number << endl << width << " " << height << max_color << endl;
 
+  for(int i=0; i<pixels.size();i++){
+    outputFile << pixels[i] << " ";
+  }
+  
+
+  outputFile.close();
 }
 
