@@ -45,10 +45,10 @@ public:
   stacker();
 
   //copy constructor
-  stacker(const stacker& other);
+  //stacker(const stacker& other);
 
   //destructor
-  ~stacker();
+  //~stacker();
 
 
 /**
@@ -59,7 +59,7 @@ public:
  * @post the vector of pixels
  * 
  */
-  std::vector<pixel> scan();
+  //std::vector<pixel> scan();
 
 
 

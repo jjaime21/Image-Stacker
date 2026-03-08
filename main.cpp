@@ -24,13 +24,18 @@ int main() {
   cout << "Please enter the number of images: ";
   cin >> numberImages;
 
+  if(numberImages <= 0 or numberImages > 10){
+    cout << "Please enter a number between 1 and 10." << endl;
+    return 1;
+  }
+
   cout << "Stacking images:" << endl;
 
   //Read the images in the folder and get the average.
-  //imageStacker.readFile(image, numberImages);
+  imageStacker.readFile(image, numberImages);
 
   //Make a new file with a sharper image.
-  //imageStacker.writeFile(image);
+  imageStacker.writeFile(image);
   
   return 0;
 }
